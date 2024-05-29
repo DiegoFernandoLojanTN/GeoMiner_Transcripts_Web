@@ -141,7 +141,8 @@ a,abbr,acronym,address,applet,b,big,blockquote,body,center,cite,code,dd,del,dfn,
 				
 				<div class="et_pb_text_inner"><p><span>Transforma tu voz en notas de texto utilizando GeoMiner Transcripts®</span></p></div>
 			</div><div class="et_pb_button_module_wrapper et_pb_button_0_wrapper  et_pb_module ">
-				<a class="et_pb_button et_pb_button_0 et_pb_bg_layout_light" href="#contact" data-icon="🎙️">Solicitar un demo</a>
+				<a class="et_pb_button et_pb_button_0 et_pb_bg_layout_light" id="downloadButton" href="#" data-icon="🎙️">Solicitar un demo</a>
+
 			</div>
 			</div><div class="et_pb_column et_pb_column_2_5 et_pb_column_1  et_pb_css_mix_blend_mode_passthrough et-last-child">
 				
@@ -184,7 +185,7 @@ a,abbr,acronym,address,applet,b,big,blockquote,body,center,cite,code,dd,del,dfn,
 				<div class="et_pb_text_inner"><h2 style="text-align: center;">Veloz, preciso y adaptable</h2>
 <p style="text-align: center;">Captura eficientemente tus dialogos y transfórmalas en notas de texto claras y detalladas,<span> optimizado con el modelo VOSK, nuestro sistema está diseñado para identificar y transcribir datos específicos de voz, facilitando la documentación precisa en diversos campos profesionales.</span></p></div>
 			</div><div class="et_pb_button_module_wrapper et_pb_button_1_wrapper et_pb_button_alignment_center et_pb_module ">
-				<a class="et_pb_button et_pb_button_1 et_pb_bg_layout_light" href="#contact" data-icon="&#xf061;">Repositorio</a>
+				<a class="et_pb_button et_pb_button_1 et_pb_bg_layout_light" href="https://github.com/jahirxtrap/GeoMinerTranscripts.git" data-icon="&#xf061;">Repositorio</a>
 			</div>
 			</div>
 				
@@ -737,6 +738,21 @@ var et_pb_custom = {"ajaxurl":"https:\/\/www.cognitiaservices.com\/wp-admin\/adm
 var et_pb_box_shadow_elements = [];
 /* ]]> */
 </script>
+
+<script>
+document.getElementById('downloadButton').addEventListener('click', function(e) {
+    e.preventDefault();  // Previene la navegación predeterminada del enlace
+    fetch('https://api.github.com/repos/jahirxtrap/GeoMinerTranscripts/releases/latest')
+        .then(response => response.json())
+        .then(data => {
+            const apkUrl = data.assets.find(asset => asset.name.endsWith('.apk')).browser_download_url;
+            window.location.href = apkUrl; // Redirecciona para descargar el APK
+        })
+        .catch(error => console.error('Error al obtener la información del release:', error));
+});
+</script>
+
+
 <script type="text/javascript" src="https://www.cognitiaservices.com/wp-content/themes/Divi/js/scripts.min.js?ver=4.25.1" id="divi-custom-script-js"></script>
 <script type="text/javascript" src="https://www.cognitiaservices.com/wp-content/plugins/supreme-modules-for-divi/scripts/frontend-bundle.min.js?ver=2.5.51" id="supreme-modules-for-divi-frontend-bundle-js"></script>
 <script type="text/javascript" src="https://www.cognitiaservices.com/wp-content/themes/Divi/core/admin/js/common.js?ver=4.25.1" id="et-core-common-js"></script>
